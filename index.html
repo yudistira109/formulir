@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/poppins');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-transform: capitalize;
+        }
+    </style>
+    <title>Yudistira</title>
+    <script>
+        function checkFileSize(input) {
+            var maxSize = 2 * 1024 * 1024;
+            if (input.files[0].size > maxSize) {
+                alert("Ukuran FIle Tidak Boleh Lebih Dari 2 MB");
+                input.value = "";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form id="form" name="form" onsubmit="return validasiForm()">
+        <fieldset>
+            <legend align="center">formulir pendaftaran lomba volley antar RT/RW</legend>
+            <table>
+                <tr>
+                    <td><label for="nama_tim">nama tim</label></td>
+                    <td>:</td>
+                    <td><input type="text" name="nama_tim" id="nama_tim" placeholder="Masukkan Nama" required
+                            oninvalid="this.setCustomValidity('Nama Tidak Boleh Kosong Atau Menggunakan Angka!!!!')"
+                            oninput="this.setCustomValidity('')" pattern="[a-zA-Z]+"></td>
+                </tr>
+                <tr>
+                    <td><label for="jumlah_anggota">jumlah anggota</label></td>
+                    <td>:</td>
+                    <td><input type="number" name="jumlah_anggota" id="jumlah_anggota" placeholder="Jumlah Anggota"
+                            required oninvalid="this.setCustomValidity('Jumlah Anggota Tidak Boleh Kosong!!!!')"
+                            oninput="this.setCustomValidity('')"></td>
+                </tr>
+                <tr>
+                    <td><label for="asal">asal</label></td>
+                    <td>:</td>
+                    <td><input type="number" name="rt" id="asal" placeholder="RT" required
+                            oninvalid="this.setCustomValidity('RT Tidak Boleh Kosong!!!!')"
+                            oninput="this.setCustomValidity('')"><br>
+                        <input type="number" name="rw" id="asal" placeholder="RW" required
+                            oninvalid="this.setCustomValidity('RW Tidak Boleh Kosong!!!!')"
+                            oninput="this.setCustomValidity('')">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="nama_ketua_tim">nama ketua tim</label></td>
+                    <td>:</td>
+                    <td><input type="text" name="nama_ketua_tim" id="nama_ketua_tim" placeholder="Ketua Tim" required
+                            oninvalid="this.setCustomValidity('Nama Ketua Tim Tidak Boleh Kosong Atau Menggunakan Angka!!!!')"
+                            oninput="this.setCustomValidity('')" pattern="[a-zA-Z]+"></td>
+                </tr>
+                <tr>
+                    <td><label for="no_hp_ketua_tim">no. HP ketua tim</label></td>
+                    <td>:</td>
+                    <td><input type="tel" name="no_hp_ketua_tim" id="no_hp_ketua_tim" placeholder="No. HP" required
+                            minlength="11"
+                            oninvalid="this.setCustomValidity('Nomor Hp Harus Berisi Angka Dan Lebih Dari 11')"
+                            oninput="this.setCustomValidity('')"></td>
+                </tr>
+                <tr>
+                    <td><label for="upload_foto_ktp_ketua_tim">upload foto KTP ketua tim</label></td>
+                    <td>:</td>
+                    <td><input type="file" name="upload_foto_ktp_ketua_tim" id="upload_foto_ktp_ketua_tim"
+                            onchange="checkFileSize(this)"></td>
+                </tr>
+                <tr>
+                    <td><label for="tanggal_pendaftaran">tanggal pendaftaran</label></td>
+                    <td>:</td>
+                    <td><input type="date" name="tanggal_pendaftaran" id="tanggal_pendaftaran"></td>
+                </tr>
+                <tr>
+                    <td><label>tim</label></td>
+                    <td></td>
+                    <td><input type="radio" name="perempuan" id="regu_tim1"><label for="regu_tim1">perempuan</label>
+                        <input type="radio" name="laki-laki" id="regu_tim2"><label for="regu_tim2">laki-laki</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="submit">Silahkan Klik Daftar</label></td>
+                    <td>:</td>
+                    <td align="right"><input type="submit" name="submit" id="submit" value="Daftar"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="eror" id="error"></div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+</body>
+
+</html>
